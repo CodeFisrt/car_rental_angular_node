@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          Booking List
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div *ngFor="let booking of bookings" class="col-md-3 mb-3">
+              <div class="card">
+                <img [src]="booking.vehicle.image" class="card-img-top car-height" alt="Vehicle Image">
+                <div class="card-body">
+                  <h5 class="card-title">{{ booking.vehicleId }}</h5>
+                  <div class="row">
+                    <div class="col-6">
+                      {{ booking.startDate |date:'dd-MMM-yy'}}
+                    </div>
+                    <div class="col-6 text-end">
+                      {{ booking.endDate |date:'dd-MMM-yy'}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <strong>Price:</strong> ${{ booking.price }}
+                    </div>
+                    <div class="col-6 text-end">
+                      <strong>Dis:</strong> {{ booking.discount }}%
+                    </div>
+                  </div> 
+                  <div class="row">
+                    <div class="col-12">
+                      <strong>Booked By:</strong> ${{ booking.user.name }}
+                    </div>
+                    
+                  </div> 
+                  <div class="d-flex justify-content-between">
+                    <button class="btn btn-sm btn-danger" (click)="deleteBooking(booking._id)">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- <div class="col-4">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          Add Booking
+        </div>
+        <div class="card-body">
+          <form >
+            <div class="form-group">
+              <label for="vehicleId">Vehicle ID</label>
+              <input type="text" class="form-control" id="vehicleId" [(ngModel)]="bookingObj.vehicleId" name="vehicleId">
+            </div>
+            <div class="form-group">
+              <label for="sDate">Start Date</label>
+              <input type="date" class="form-control" id="sDate" [(ngModel)]="bookingObj.sDate" name="sDate">
+            </div>
+            <div class="form-group">
+              <label for="eDate">End Date</label>
+              <input type="date" class="form-control" id="eDate" [(ngModel)]="bookingObj.eDate" name="eDate">
+            </div>
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="number" class="form-control" id="price" [(ngModel)]="bookingObj.price" name="price">
+            </div>
+            <div class="form-group">
+              <label for="discount">Discount</label>
+              <input type="number" class="form-control" id="discount" [(ngModel)]="bookingObj.discount" name="discount">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="createBooking()">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div> -->
+  </div>
+ 
+</div>
